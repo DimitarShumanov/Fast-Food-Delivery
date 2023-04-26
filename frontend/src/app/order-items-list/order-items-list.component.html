@@ -1,0 +1,51 @@
+<table>
+  <tr>
+    <td colspan="5">
+      <h3>Избрани Продукти:</h3>
+    </td>
+  </tr>
+  <tr *ngFor="let item of order.items">
+    <td>
+      <a routerLink="/food/{{item.food.id}}">
+        <img [src]="item.food.imageUrl"/>
+      </a>
+    </td>
+    <td>
+      {{item.food.name}}
+    </td>
+    <td>
+      <ng-container *ngIf="!item.food.isOnSale; else salePrice">
+        €{{item.food.price}}
+      </ng-container>
+      <ng-template #salePrice>
+        <span class="original-price">€{{item.food.price}}</span>
+        <span class="sale-price">€{{item.food.salePrice}}</span>
+      </ng-template>
+    </td>
+    <td>
+      {{item.quantity}}
+    </td>
+    <td>
+      <ng-container *ngIf="!item.food.isOnSale; else salePrice">
+        €{{item.food.price}}
+      </ng-container>
+      <ng-template #salePrice>
+        <span class="original-price">€{{item.price}}</span>
+        <span class="sale-price">€{{item.salePrice}}</span>
+      </ng-template>
+    </td>
+  </tr>
+  <tr>
+    <td colspan="3"></td>
+    <td>
+      <strong>
+        Общо :
+      </strong>
+    </td>
+    <td>
+      <strong>
+        €{{order.totalPrice}}
+      </strong>
+    </td>
+  </tr>
+</table>

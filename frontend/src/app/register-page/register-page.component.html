@@ -1,0 +1,58 @@
+<div class="container">
+  <div class="details">
+    <app-title title="Регистрация"></app-title>
+    <form [formGroup]="registerForm" (ngSubmit)="submit()">
+      <text-input
+        [control]="fc.name"
+        [showErrorsWhen]="isSubmitted"
+        label="Име"
+      >
+        `</text-input
+      >
+
+      <text-input
+        [control]="fc.email"
+        [showErrorsWhen]="isSubmitted"
+        label="Имейл"
+        type="email"
+      >
+        `</text-input
+      >
+
+      <text-input
+        [control]="fc.password"
+        [showErrorsWhen]="isSubmitted"
+        label="Парола"
+        type="password"
+      >
+        `</text-input
+      >
+
+      <text-input
+        [control]="fc.confirmPassword"
+        [showErrorsWhen]="isSubmitted"
+        label="Потвърди Парола"
+        type="password"
+      >
+        `</text-input
+      >
+
+      <text-input
+        [control]="fc.address"
+        [showErrorsWhen]="isSubmitted"
+        label="Адрес"
+      >
+        `</text-input
+      >
+
+      <default-button text="Регистрация"></default-button>
+
+      <div class="login">
+        Вече потребител? &nbsp;
+        <a routerLink="/login" [queryParams]="{ returnUrl: returnUrl }">
+          Влезте тук
+        </a>
+      </div>
+    </form>
+  </div>
+</div>

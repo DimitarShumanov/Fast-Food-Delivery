@@ -1,0 +1,47 @@
+<div class="users-table">
+  <table mat-table [dataSource]="users">
+    <ng-container matColumnDef="name">
+      <th mat-header-cell *matHeaderCellDef>Name</th>
+      <td mat-cell *matCellDef="let user">{{ user.name }}</td>
+    </ng-container>
+    <ng-container matColumnDef="email">
+      <th mat-header-cell *matHeaderCellDef>Email</th>
+      <td mat-cell *matCellDef="let user">{{ user.email }}</td>
+    </ng-container>
+    <ng-container matColumnDef="password">
+      <th mat-header-cell *matHeaderCellDef>Password</th>
+      <td mat-cell *matCellDef="let user">{{ user.password }}</td>
+    </ng-container>
+    <ng-container matColumnDef="address">
+      <th mat-header-cell *matHeaderCellDef>Address</th>
+      <td mat-cell *matCellDef="let user">{{ user.address }}</td>
+    </ng-container>
+    <ng-container matColumnDef="isAdmin">
+      <th mat-header-cell *matHeaderCellDef>Admin</th>
+      <td mat-cell *matCellDef="let user">{{ user.isAdmin }}</td>
+    </ng-container>
+    <ng-container matColumnDef="action">
+      <th mat-header-cell *matHeaderCellDef>Action</th>
+      <td mat-cell *matCellDef="let user">
+        <button mat-raised-button color="primary" (click)="editUser(user.id)">
+          Edit
+        </button>
+        <button mat-raised-button color="warn" (click)="deleteUser(user.id)">
+          Delete
+        </button>
+      </td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+  </table>
+</div>
+<button
+  class="create-user-btn"
+  mat-fab
+  color="primary"
+  aria-label="Create User"
+  (click)="createUser()"
+>
+  <mat-icon class="plus-icon">add</mat-icon>
+</button>

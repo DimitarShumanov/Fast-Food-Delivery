@@ -1,0 +1,51 @@
+<div class="container" *ngIf="editForm">
+  <h1>Промяна на потребител</h1>
+  <form [formGroup]="editForm" (ngSubmit)="editUser(user.id)">
+    <div class="form-group">
+      <label for="name">Име:</label>
+      <input
+        type="text"
+        id="name"
+        formControlName="name"
+        class="form-control"
+      />
+    </div>
+    <div class="form-group">
+      <label for="email">Имейл:</label>
+      <input
+        type="email"
+        id="email"
+        formControlName="email"
+        class="form-control"
+      />
+    </div>
+    <div class="form-group">
+      <label for="password">Парола:</label>
+      <input
+        type="password"
+        id="password"
+        formControlName="password"
+        class="form-control"
+      />
+    </div>
+    <div class="form-group">
+      <label for="address">Адрес:</label>
+      <input
+        type="text"
+        id="address"
+        formControlName="address"
+        class="form-control"
+      />
+    </div>
+    <div class="form-group">
+      <label for="isAdmin">Администратор:</label>
+      <input
+        type="checkbox"
+        id="isAdmin"
+        formControlName="isAdmin"
+        class="form-check-input"
+      />
+    </div>
+    <button type="submit" class="btn btn-primary">Промени</button>
+  </form>
+</div>

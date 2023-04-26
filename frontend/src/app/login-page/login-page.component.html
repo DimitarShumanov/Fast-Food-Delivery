@@ -1,0 +1,27 @@
+<div class="container" fxFlex>
+    <div class="details">
+      <app-title title="Влизане"></app-title>
+      <form [formGroup]="loginform" (ngSubmit)="submit()" fxLayout="column">
+      <text-input
+      [control]="fc.email"
+      [showErrorsWhen]="isSubmitted"
+      type="email"
+      label="Имейл">
+    </text-input>
+    <text-input
+    [control]="fc.password"
+    [showErrorsWhen]="isSubmitted"
+    type="password"
+    label="Парола">
+  </text-input>
+  
+      <default-button text="Login"></default-button>
+      <div class="register">
+        Нов потребител? &nbsp;
+        <a routerLink="/register" [queryParams]="{returnUrl : returnUrl}">
+          Регистрирай те се тук
+        </a>
+      </div>
+      </form>
+    </div>
+  </div>

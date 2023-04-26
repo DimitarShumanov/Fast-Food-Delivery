@@ -1,0 +1,46 @@
+<app-title title="Количка" margin="1.5rem 0 0 2.5rem"></app-title>
+
+<app-not-found
+  [visible]="!cart || !cart.items.length"
+  notFoundMessage="Количката е празна!"
+  resetLinkText="Отиди към Начало"
+></app-not-found>
+<div *ngIf="cart && cart.items.length" class="container">
+    <ul>
+        <li *ngFor="let cartItem of cart.items">
+            <div>
+                <img [src]="cartItem.food.imageUrl" [alt]="cartItem.food.name">
+            </div>
+            <div>
+                <a routerLink="/food/{{cartItem.food.id}}">
+                    {{cartItem.food.name}}
+                </a>
+            </div>
+            <div>
+                <input type="number" min="1" max="100" step="1" [(ngModel)]="cartItem.quantity" (ngModelChange)="changeQuantity(cartItem, $event)">
+              </div>              
+            <div>
+                <span *ngIf="cartItem.food.isOnSale">
+                    <del>€{{cartItem.price}}</del> €{{cartItem.salePrice}}
+                </span>
+                <span *ngIf="!cartItem.food.isOnSale">
+                  €{{cartItem.price}}
+                </span>
+            </div>
+
+            <div>
+                <button class="remove-button" (click)="removeFromCart(cartItem)">
+                    Изтрий
+                </button>
+            </div>
+        </li>
+    </ul>
+    <div class="checkout">
+        <div>
+            <div class="foods-count">{{cart.totalCount}}</div>
+            <div class="total-price">€{{cart.totalPrice}}</div>
+        </div>
+
+        <a routerLink="/checkout">Към Поръчки</a>
+    </div>
+</div>
