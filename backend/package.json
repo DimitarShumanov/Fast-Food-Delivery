@@ -4,8 +4,9 @@
   "description": "",
   "main": "server.ts",
   "scripts": {
-    "start": "cd src && nodemon server.ts",
-    "build": "npm install && tsc"
+    "start": "node dist/server.js",
+    "dev": "cd src && nodemon server.ts",
+    "build": "tsc -p ./tsconfig.json"
   },
   "keywords": [],
   "author": "",
