@@ -34,10 +34,11 @@
             {{ food.cookingTime }}
           </div>
         </div>
-
         <div class="price">
           <span *ngIf="!food.isOnSale"> €{{ food.price }} </span>
-          <span *ngIf="food.isOnSale" class="sale-price"> <del>€{{ food.price }}</del> €{{ food.salePrice }} </span>
+          <span *ngIf="food.isOnSale" class="sale-price">
+            <del>€{{ food.price }}</del> €{{ food.salePrice }}
+          </span>
         </div>
       </div>
     </a>
