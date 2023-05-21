@@ -30,6 +30,11 @@ a.logo {
   }
 }
 
+a.logo:hover {
+  background: white;
+  cursor: pointer;
+}
+
 ul {
   display: flex;
   list-style-type: none;

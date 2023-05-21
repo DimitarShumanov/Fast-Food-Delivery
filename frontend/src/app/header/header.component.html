@@ -1,28 +1,28 @@
 <header>
   <div class="container">
     <a routerLink="/" class="logo"><img src="assets/images/Logo.png" alt=""></a>
-      <nav>
-        <ul>
-          <li *ngIf="!isAuth">
-            <a routerLink="/login">Влизане</a>
-          </li>
-          <li *ngIf="isAuth" class="menu-container">
-            <a>{{user.name}}</a>
-            <div class="menu">
-              <a routerLink="/orders" *ngIf="isAuth && user.isAdmin === false">Поръчки</a>
-              <a routerLink="/orders-dashboard" *ngIf="isAuth && user.isAdmin === true">Управление на поръчки</a>
-              <a routerLink="/dashboard" *ngIf="isAuth && user.isAdmin === true">Продукти</a>
-              <a routerLink="/user-dashboard" *ngIf="isAuth && user.isAdmin === true">Потребители</a>
-              <a (click)="logout()">Излизане</a>
-            </div>
-          </li>
-          <li>
-            <a routerLink="/cart-page">
-              <mat-icon class="mat-18">shopping_cart</mat-icon> <span *ngIf="cartQuantity">{{cartQuantity}}</span>
-            </a>
-          </li>
-        </ul>
-      </nav>
+    <nav>
+      <ul>
+        <li *ngIf="!isAuth">
+          <a routerLink="/login">Влизане</a>
+        </li>
+        <li *ngIf="isAuth" class="menu-container">
+          <a>{{user.name}}</a>
+          <div class="menu">
+            <a routerLink="/orders" *ngIf="isAuth && user.isAdmin === false">Поръчки</a>
+            <a routerLink="/orders-dashboard" *ngIf="isAuth && user.isAdmin === true">Управление на поръчки</a>
+            <a routerLink="/dashboard" *ngIf="isAuth && user.isAdmin === true">Продукти</a>
+            <a routerLink="/user-dashboard" *ngIf="isAuth && user.isAdmin === true">Потребители</a>
+            <a routerLink="/terms">Правила и условия</a>
+            <a (click)="logout()">Излизане</a>
+          </div>
+        </li>
+        <li>
+          <a routerLink="/cart-page">
+            <mat-icon class="mat-18">shopping_cart</mat-icon> <span *ngIf="cartQuantity">{{cartQuantity}}</span>
+          </a>
+        </li>
+      </ul>
+    </nav>
   </div>
 </header>
-  

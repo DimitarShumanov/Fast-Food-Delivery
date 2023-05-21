@@ -52,6 +52,7 @@ import { CreateUserComponent } from './create-user/create-user.component';
 import { EditUserComponent } from './edit-user/edit-user.component';
 import { OrdersComponent } from './orders/orders.component';
 import { OrderDashboardComponent } from './order-dashboard/order-dashboard.component';
+import { TermsComponent } from './terms/terms.component';
 
 @NgModule({
   declarations: [
@@ -85,7 +86,8 @@ import { OrderDashboardComponent } from './order-dashboard/order-dashboard.compo
     CreateUserComponent,
     EditUserComponent,
     OrdersComponent,
-    OrderDashboardComponent
+    OrderDashboardComponent,
+    TermsComponent
   ],
   imports: [
     BrowserModule,

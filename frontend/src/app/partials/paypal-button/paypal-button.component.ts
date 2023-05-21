@@ -56,7 +56,11 @@ export class PaypalButtonComponent implements OnInit {
                 this.router.navigateByUrl('/track/' + orderId);
                 this.toastrService.success(
                   'Плащането е запазено успешно',
-                  'Succes'
+                  'Success'
+                );
+                this.toastrService.success(
+                  'Поръчката ви ще пристигне до 30 минути',
+                  'Success'
                 );
               },
               error: (error) => {
