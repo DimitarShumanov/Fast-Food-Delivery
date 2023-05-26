@@ -104,17 +104,31 @@ router.get('/:id', asyncHandler (
 ));
 
 // Създава нов потребител в базата от данни
-router.post('/', asyncHandler (
-  async (req, res) => {
+router.post(
+  "/",
+  asyncHandler(async (req, res) => {
     try {
-      const user = new UserModel(req.body);
-      await user.save();
-      res.send(user);
+      const { name, email, password, address, isAdmin } = req.body;
+      // Хеширане на паролата
+      const encryptedPassword = await bcrypt.hash(password, 10);
+      // Създава нов потребител
+      const user: User = {
+        id: "",
+        name,
+        email: email.toLowerCase(),
+        password: encryptedPassword,
+        address,
+        isAdmin,
+      };
+      // Добавя потребителя към базата от данни
+      const dbUser = await UserModel.create(user);
+      // Генерира token и изпраща token response
+      res.send(generateTokenResponse(dbUser));
     } catch (error) {
       res.status(500).send(error);
     }
-  }
-));
+  })
+);
 
 // Модифицира потребител от базата от данни
 router.patch('/:id', asyncHandler (
