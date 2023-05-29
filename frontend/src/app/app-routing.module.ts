@@ -18,6 +18,7 @@ import { EditUserComponent } from './edit-user/edit-user.component';
 import { OrdersComponent } from './orders/orders.component';
 import { OrderDashboardComponent } from './order-dashboard/order-dashboard.component';
 import { AdminGuard } from './auth/guards/admin.guard';
+import { TermsComponent } from './terms/terms.component';
 
 const routes: Routes = [
   {
@@ -28,6 +29,7 @@ const routes: Routes = [
   { path: 'home', component: HomeComponent },
   { path: 'search/:searchTerm', component: HomeComponent },
   { path: 'tag/:tag', component: HomeComponent },
+  { path: 'terms', component: TermsComponent },
   {
     path: 'edit-product/:id',
     component: EditProductComponent,
